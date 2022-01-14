@@ -1,0 +1,15 @@
+:root{
+    --primary-color: #72a2cf;
+    --secondary-color: #abc6df;
+    --tertiary-color: #edf0f8;
+}
+body {
+    background-color: var(--primary-color);
+    background: linear-gradient(to bottom, var(--secondary-color) 0%, var(--primary-color) 100%);
+    margin:0;
+    min-height:100vh;
+}
+h1{
+    text-align: center;
+    font-size:2rem;
+}
