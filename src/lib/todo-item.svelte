@@ -22,4 +22,15 @@
 .todoBox button{
     margin:1em;
 }
+/* input text rounded 50% transparent white background */
+.todoBox input{
+
+    border:none;
+
+
+    padding:0.5em;
+    width:10em;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 5px;
+}
 </style>
