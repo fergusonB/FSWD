@@ -14,7 +14,7 @@ export let todo:Todo;
         <button class="save" aria-label="Save">Save</button>
     </form>
     <!-- delete -->
-    <form action="" method="">
+    <form action="/todos/{todo.uid}.json?_method=delete" method="post">
         <button class="delete" aria-label="Delete">Delete</button>
     </form>
 </div>
