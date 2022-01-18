@@ -1,3 +1,7 @@
+<script lang="ts">
+export let todo:Todo;
+</script>
+
 <div class="todoBox">
     <form action="" method="">
         <input type="hidden" name="done"/>
@@ -5,7 +9,7 @@
     </form>
 
     <form action="" method="">
-        <input class="text" type="text">
+        <input class="text" type="text" value={todo.text}>
         <!--  save -->
         <button class="save" aria-label="Save">Save</button>
     </form>
