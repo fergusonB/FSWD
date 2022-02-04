@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
     import type {Load} from '@sveltejs/kit'
+    import {enhance} from '$lib/actions/form'
 
     export const load:Load = async ({fetch})=>{
         const res = await fetch('/todos.json');
@@ -28,6 +29,13 @@
 
     const title = "Todos";
 
+    
+    const processNewTodoResult = async(res:Response)=>{
+        const newTodo = await res.json();
+        todos = [...todos, newTodo];
+    }
+
+
 
 </script>
 
@@ -38,7 +46,10 @@
 <div class="todos">
     <h1>{title}</h1>
 
-    <form action="/todos.json" method="post" class="new">
+
+    <a href="/about-us">About us</a>
+
+    <form action="/todos.json" method="post" use:enhance={{result:processNewTodoResult}} class="new">
         <input
             type="text"
             name="text"
