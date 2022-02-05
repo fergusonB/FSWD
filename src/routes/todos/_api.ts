@@ -24,6 +24,7 @@ export const api = (request:Request,data?:Record<string,unknown>) =>{
             break
         case 'DELETE':
             todos = todos.filter(todo => todo.uid !== request.params.uid)
+            status=201
             break
         case 'PATCH':
             todos = todos.map(todo=>{

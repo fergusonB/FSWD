@@ -19,6 +19,7 @@ export const enhance = (form: HTMLFormElement, {result}) => {
             }
             else{
                 console.error('fetch error', await res.text());
+               
             }
         }
         catch(error){
