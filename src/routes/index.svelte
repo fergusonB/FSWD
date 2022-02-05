@@ -30,9 +30,21 @@
     const title = "Todos";
 
     
-    const processNewTodoResult = async(res:Response)=>{
+    const processNewTodoResult = async(res:Response, form:HTMLFormElement)=>{
         const newTodo = await res.json();
         todos = [...todos, newTodo];
+        form.reset();
+
+    }
+
+    const processUpdatedTodoResult = async(res:Response)=>{
+        const updatedTodo = await res.json();
+        todos = todos.map(t=>{
+            if (t.uid === updatedTodo.uid) {
+                return updatedTodo;
+            }
+            return t;
+        })
     }
 
 
@@ -59,7 +71,13 @@
     </form>
 
     {#each todos as todo}
-    <TodoItem {todo} />
+    <TodoItem {todo}
+     processDeletedTodoResult={()=>{
+        todos=todos.filter(t=>t.uid!==todo.uid);
+        console.log(todos)
+    }}
+    processUpdatedTodoResult={processUpdatedTodoResult}
+    />
     {/each}
 
 
